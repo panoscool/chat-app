@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import '../App.css';
 
 class SendMessageForm extends Component {
     constructor() {
@@ -28,9 +29,9 @@ class SendMessageForm extends Component {
                 <input 
                     onChange={this.handleChange}
                     value={this.state.message}
+                    disabled={this.props.disabled}
                     placeholder="Type your message and hit Enter"
-                    type="text"
-                />
+                    type="text" />
             </form>
         );
     }
