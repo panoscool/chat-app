@@ -33,7 +33,6 @@ class App extends Component {
             this.currentUser = currentUser
             this.getRooms()
         })
-
         .catch(err => console.log('error on connecting', err))
     }
     
@@ -45,7 +44,6 @@ class App extends Component {
                     joinedRooms: this.currentUser.rooms
                 })
             })
-
             .catch(err => console.log('error on joinableRooms', err))
     }
 
@@ -74,7 +72,7 @@ class App extends Component {
     sendMessage = (text) => {
         this.currentUser.sendMessage({
             text,
-            roomId: this.state.roomId,
+            roomId: this.state.roomId
         })
     }
 
@@ -82,7 +80,9 @@ class App extends Component {
         this.currentUser.createRoom({
             name
         })
-        .then(room => this.subscribeToRoom(room.id))
+        .then(room => {
+            this.subscribeToRoom(room.id)
+        })
         .catch(err => console.log('error with createRoom', err))
     }
     
